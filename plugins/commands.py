@@ -18,7 +18,7 @@ async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('𝚄𝙿𝙳𝙰𝚃𝙴𝚂', url='https://t.me/new_movies_group_2021')
+                InlineKeyboardButton('GROUP', url='https://t.me/new_movies_group_2021')
             ],
             [
                 InlineKeyboardButton('𝙷𝙴𝙻𝙿', url=f"https://t.me/{temp.U_NAME}?start=help"),
@@ -62,7 +62,7 @@ async def start(client, message):
         btn = [
             [
                 InlineKeyboardButton(
-                    "🤖 Join Updates Channel", url=invite_link.invite_link
+                    "JOIN CHANNEL", url=invite_link.invite_link
                 )
             ]
         ]
