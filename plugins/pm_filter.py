@@ -112,7 +112,7 @@ async def next_page(bot, query):
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
     if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer("okDa", show_alert=True)
+        return await query.answer("ഇത് നിന്റെ അല്ല ....😎", show_alert=True)
     if movie_  == "close_spellcheck":
         return await query.message.delete()
     movies = SPELL_CHECK.get(query.message.reply_to_message.message_id)
@@ -127,7 +127,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('This Movie Not Found In DataBase')
+            k = await query.message.edit('നിങ്ങൾ ചോദിച്ച മൂവി റിലീസ് ആയിട്ടില്ല എന്ന് തോന്നുന്നു😔. അല്ലെങ്കിൽ അത് ഞങ്ങൾ അപ്ലോഡ് ചെയ്തിട്ടില്ല😔/n please wait...')
             await asyncio.sleep(10)
             await k.delete()
 
@@ -359,7 +359,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     file_id=file_id,
                     caption=f_caption
                     )
-                await query.answer('Check PM, I have sent files in pm',show_alert = True)
+                await query.answer('മൂവിയുടെ ഫയൽ ‍‍ഞാന്‍ pm ഇൽ ഇട്ടിട്ടുണ്ട് പോയി നോക്ക്🏃',show_alert = True)
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !',show_alert = True)
         except PeerIdInvalid:
@@ -369,7 +369,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
-            await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒",show_alert=True)
+            await query.answer("നീ എൻ്റെ ചാനലിൽ ജോയിൻ ആയിട്ടില്ല.🥲",show_alert=True)
             return
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
@@ -401,7 +401,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ', url='http://t.me/dqautofl_bot?startgroup=true')
             ],[
             InlineKeyboardButton('sᴇᴀʀᴄʜ', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('sᴜᴘᴘᴏʀᴛ', url='https://t.me/EDIT_REPO')
+            InlineKeyboardButton('sᴜᴘᴘᴏʀᴛ', url='https://t.me/new_movies_group_2021')
             ],[
             InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
@@ -891,7 +891,7 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist)) # removing duplicates
     if not movielist:
-        k = await msg.reply("I couldn't find anything related to that. Check your spelling")
+        k = await msg.reply("നിങ്ങൾ ചോദിച്ചത് മനസ്സിലായിട്ടില്ല. സ്പെല്ലിംഗ് ഒന്ന് ചെക്ക് ചെയ്തു നോക്കുക🏃‍")
         await asyncio.sleep(8)
         await k.delete()
         return
@@ -903,7 +903,7 @@ async def advantage_spell_chok(msg):
                 )
             ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    await msg.reply("I couldn't find anything related to that\nDid you mean any one of these?", reply_markup=InlineKeyboardMarkup(btn))
+    await msg.reply("എനിക്ക് അതുമായി ബന്ധപ്പെട്ട ഒന്നും കണ്ടെത്താൻ കഴിഞ്ഞില്ല . /nഇതിൽ ഏതെങ്കിലും ഒന്നാണോ താങ്കൾ ഉദ്ദേശിച്ചത്?", reply_markup=InlineKeyboardMarkup(btn))
     
 
 async def manual_filters(client, message, text=False):
