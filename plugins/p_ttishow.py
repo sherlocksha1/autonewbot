@@ -26,7 +26,7 @@ async def save_group(bot, message):
             ]]
             reply_markup=InlineKeyboardMarkup(buttons)
             k = await message.reply(
-                text='<b>CHAT NOT ALLOWED 🐞\n\nMy admins has restricted me from working here ! If you want to know more about it contact support..</b>',
+                text='<b>എന്നെ നിങ്ങളുടെ ഗ്രൂപ്പില്‍ ചേര്‍ത്തതിന് നന്ദി {message.chat.title} ❣️\n\n JOIN OUR UPDATE CHANNEL 🥳</b>',
                 reply_markup=reply_markup,
             )
 
@@ -38,7 +38,7 @@ async def save_group(bot, message):
             return
         buttons = [[
             InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
-            InlineKeyboardButton('📢 Updates', url='https:/t.me/TeamEvamaria')
+            InlineKeyboardButton('📢 Updates', url='https://t.me/movies_hub_group_2022')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
